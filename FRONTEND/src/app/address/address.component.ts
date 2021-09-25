@@ -10,7 +10,13 @@ export class AddressComponent implements OnInit {
   constructor() { }
 
   @Input()
-  address : string = "none";
+  street : string = "";
+  @Input()
+  postcode : string = "";
+  @Input()
+  city : string = "";
+  @Input()
+  country : string = "";
 
   ngOnInit(): void {
   }
