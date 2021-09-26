@@ -1,16 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-account-form',
   templateUrl: './account-form.component.html',
   styleUrls: ['./account-form.component.css']
 })
-export class AccountFormComponent implements OnInit {
-  valid : boolean = false;
-
+export class AccountFormComponent{
   lastname : string = "";
   firstname : string = "";
   title : string = "";
@@ -26,13 +21,12 @@ export class AccountFormComponent implements OnInit {
 
   titles : Array<string> = ["Homme", "Femme"];
 
+  valid : boolean = false;
+
   onSubmit(){
     this.valid = true;
   }
 
   constructor() { }
-  
-  ngOnInit(): void {
-  }
   
 }

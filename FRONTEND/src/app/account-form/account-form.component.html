@@ -1,22 +1,17 @@
 <p>Compte client de {{ lastname | uppercase }} {{ firstname | lowercase }}</p>
-<form #clientForm="ngForm">
+<form #clientForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="email">Adresse mail</label>
-        <input class="form-control" id="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" required pattern="^.+@.+\..+$">
+        <input type="text" class="form-control" id="email" [(ngModel)]="email" name="email" required pattern="^.+@.+\..+$">
     </div>
     <div class="form-group">
         <label for="firstname">Prénom</label>
-        <input class="form-control" id="firstname" [(ngModel)]="firstname" [ngModelOptions]="{standalone: true}" required>
+        <input type="text" class="form-control" id="firstname" [(ngModel)]="firstname" name="firstname" required>
     </div>
     <div class="form-group">
         <label for="lastname">Nom</label>
-        <input class="form-control" id="lastname" [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}" required >
-        <!-- <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger"> Ce champ est requis </div> -->
+        <input type="text" class="form-control" id="lastname" [(ngModel)]="lastname" name="lastname" required>
     </div>
-    <!-- <div>
-        <label>Civilité</label>
-        <input class="form-control" [(ngModel)]="title" [ngModelOptions]="{standalone: true}" required>
-    </div> -->
     <div class="form-group">
         <label for="title">Civilité</label>
         <select class="form-control" id="title" required>
@@ -25,32 +20,30 @@
       </div>
     <div class="form-group">
         <label for="street">Rue</label>
-        <input class="form-control" id="street" [(ngModel)]="street" [ngModelOptions]="{standalone: true}" required="true">
+        <input type="text" class="form-control" id="street" [(ngModel)]="street" name="street" required>
     </div>
     <div class="form-group">
         <label for="postcode">Code postal</label>
-        <input class="form-control" id="postcode" [(ngModel)]="postcode" [ngModelOptions]="{standalone: true}" required pattern="^[0-9]{5}$" required>
+        <input type="text" class="form-control" id="postcode" [(ngModel)]="postcode" name="postcode" required pattern="^[0-9]{5}$" required>
     </div>
     <div class="form-group">
         <label for="city">Ville</label>
-        <input class="form-control" id="city" [(ngModel)]="city" [ngModelOptions]="{standalone: true}" required>
+        <input type="text" class="form-control" id="city" [(ngModel)]="city" name="city" required>
     </div>
     <div class="form-group">
         <label for="country">Pays</label>
-        <input class="form-control" id="country" [(ngModel)]="country" [ngModelOptions]="{standalone: true}" required>
+        <input type="text" class="form-control" id="country" [(ngModel)]="country" name="country" required>
     </div>
     <div class="form-group">
         <label for="login">Login</label>
-        <input class="form-control" id="login" [(ngModel)]="login" [ngModelOptions]="{standalone: true}" required>
+        <input type="text" class="form-control" id="login" [(ngModel)]="login" name="login" required>
     </div>
     <div class="form-group">
         <label for="password">Mot de passe</label>
-        <input class="form-control" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" required pattern="[A-Z][0-9]">
+        <input type="text" class="form-control" id="password" [(ngModel)]="password" name="password" required>
     </div>
-    <input type="submit" id="form-submit" class="btn btn-default" value="Enregistrer" (click)="onSubmit()"/>
+    <input type="submit" id="form-submit" class="btn btn-success" value="Enregistrer" [disabled]="!clientForm.form.valid"/>
 </form>
-
-<!-- <app-account-form-summary [lastname] = "lastname" [firstname] = "firstname"></app-account-form-summary> -->
 
 <app-account-form-summary
     [valid] = "valid"
