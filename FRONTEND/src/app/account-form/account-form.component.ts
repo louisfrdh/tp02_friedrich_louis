@@ -24,6 +24,8 @@ export class AccountFormComponent implements OnInit {
   city : string = "";
   country : string = "";
 
+  titles : Array<string> = ["Homme", "Femme"];
+
   onSubmit(){
     this.valid = true;
   }
