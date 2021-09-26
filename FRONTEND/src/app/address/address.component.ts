@@ -10,7 +10,7 @@ export class AddressComponent implements OnInit {
   constructor() { }
 
   @Input()
-  street : string = "";
+  test : string = "test";
   @Input()
   postcode : string = "";
   @Input()

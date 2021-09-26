@@ -1,44 +1,61 @@
-<p>Saisie compte client</p> 
+<p>Compte client de {{ lastname | uppercase }} {{ firstname | lowercase }}</p>
 <form>
-    <div class="mb-3 inline">
-        Nom* : <input type="text" id="lastname" class="form-control form-control-inline" required/>
+    <div>
+        <label>Adresse mail</label>
+        <input [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
     </div>
-    <div class="mb-3 inline">
-        Prénom* : <input type="text" id="firstname" class="form-control form-control-inline" required/>
+    <div>
+        <label>Prénom</label>
+        <input [(ngModel)]="firstname" [ngModelOptions]="{standalone: true}">
     </div>
-    <div class="mb-3">
-        Adresse* : <input type="text" id="address" class="form-control" required/>
+    <div>
+        <label>Nom</label>
+        <input [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}">
     </div>
-    <div class="mb-3">
-        Code postal* : <input type="text" id="postcode" class="form-control" pattern="^[0-9]{5}$" required/> 
+    <div>
+        <label>Civilité</label>
+        <input [(ngModel)]="title" [ngModelOptions]="{standalone: true}">
     </div>
-    <div class="mb-3">           
-        Ville* : <input type="text" id="city" class="form-control" required/>
+    <div>
+        <label>Rue</label>
+        <input [(ngModel)]="street" [ngModelOptions]="{standalone: true}">
     </div>
-    <div class="mb-3">
-        <!-- Téléphone : <input type="text" id="phone" class="form-control" pattern="^(+33\s*[0-9]{8})|(0\s*[0-9]{9})$" aria-describedby="phoneHelp"/> -->
-        Téléphone : <input type="text" id="phone" class="form-control" pattern="^(\+33[0-9]{8})|(0[0-9]{9})$" aria-describedby="phoneHelp"/>
-        <div id="phoneHelp" class="form-text"> Numéro français (OX ou +33X) </div>
+    <div>
+        <label>Code postal</label>
+        <input [(ngModel)]="postcode" [ngModelOptions]="{standalone: true}">
     </div>
-    <div class="mb-3">
-        Email : <input type="text" id="email" class="form-control" pattern="^.+@.+\..+$"/>
+    <div>
+        <label>Ville</label>
+        <input [(ngModel)]="city" [ngModelOptions]="{standalone: true}">
     </div>
-    <div class="mb-3">
-        <div class="form-check form-check-inline">
-            <input type="radio" id="man" class="form-check-input" name="title"/>
-            <label class="form-check-label" for="man">Homme</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input type="radio" id="woman" class="form-check-input" name="title"/>
-            <label class="form-check-label" for="woman">Femme</label>
-        </div>
+    <div>
+        <label>Pays</label>
+        <input [(ngModel)]="country" [ngModelOptions]="{standalone: true}">
     </div>
-    <div class="mb-3">
-        Pseudo* : <input type="text" id="login" class="form-control" required/>
+    <div>
+        <label>Login</label>
+        <input [(ngModel)]="login" [ngModelOptions]="{standalone: true}">
     </div>
-    <div class="mb-3">
-        Mot de passe* : <input type="text" id="pwd" class="form-control" aria-describedby="phoneHelp" pattern="[A-Z][0-9]" required/>
-        <div id="pwdHelp" class="form-text"> Le mdp doit contenir une majuscule et un chiffre.</div>
+    <div>
+        <label>Mot de passe</label>
+        <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
     </div>
-    <input type="submit" id="form-submit" value="Enregistrer" class="btn btn-primary" onsubmit="onformsubmit"/>
+    <input type="submit" id="form-submit" value="Enregistrer" (click)="onSubmit()"/>
 </form>
+
+<!-- <app-account-form-summary [lastname] = "lastname" [firstname] = "firstname"></app-account-form-summary> -->
+
+<app-account-form-summary
+    [valid] = "valid"
+    [lastname] = "lastname"
+    [firstname] = "firstname"
+    [title] = "title"
+    [email] = "email"
+    [login] = "login"
+    [password] = "password"
+    [street] = "street"
+    [postcode] = "postcode"
+    [city] = "city"
+    [country] = "country"
+    >
+</app-account-form-summary>

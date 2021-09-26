@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-account-form',
@@ -7,10 +9,28 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./account-form.component.css']
 })
 export class AccountFormComponent implements OnInit {
+  valid : boolean = false;
 
-  constructor() { }
+  lastname : string = "";
+  firstname : string = "";
+  title : string = "";
+  email : string = "";
+  
+  login : string = "";
+  password : string = "";
+  
+  street : string = "";
+  postcode : string = "";
+  city : string = "";
+  country : string = "";
 
-  ngOnInit(): void {
+  onSubmit(){
+    this.valid = true;
   }
 
+  constructor() { }
+  
+  ngOnInit(): void {
+  }
+  
 }
